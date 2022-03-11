@@ -1,0 +1,24 @@
+[
+{
+  "model": "service_area.provider",
+  "pk": "3dfad2d3-d4ef-4a6b-89df-f93ba6c53801",
+  "fields": {
+    "name": "zee",
+    "email": "zee@zee.com",
+    "phone_number": "999999",
+    "language": "eng",
+    "currency": "USD"
+  }
+},
+{
+  "model": "service_area.provider",
+  "pk": "8ffcb9d7-83f3-4dc4-bb9c-161c1890cba7",
+  "fields": {
+    "name": "zeeshan",
+    "email": "zee@zee.com",
+    "phone_number": "999999",
+    "language": "eng",
+    "currency": "USD"
+  }
+}
+]
