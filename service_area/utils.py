@@ -1,9 +1,11 @@
 from service_area.models import Provider, ServiceArea
 from service_area.serializers import CreateProviderSerializer, \
   GetProviderSerializer, UpdateProviderSerializer, CreateServiceAreaSerializer,\
-  GetServiceAreaSerializer, UpdateServiceAreaSerializer, GeoJsonSerializer
+  GetServiceAreaSerializer, UpdateServiceAreaSerializer, GeoJsonSerializer, SearchServiceAreaSerializer
 from rest_framework import status
 import json
+from service_area.cache import CacheError, CacheService
+from shapely.geometry import mapping, shape, polygon, point
 
 def get_providers(query_data=None):
   response = {}
@@ -170,11 +172,11 @@ def search_service_area(data):
         pass
     if not response_data:
         for service_area in service_areas:
-            polygon = shape(service_area.geo_json)
-            if polygon.contains(point):
+            polygon = shape(service_area.poly)
+            if polygon.contains(polygon):
                 matching_service_area.append(service_area)
-        response_data = SearchServiceAreaSerializer(
-                    matching_service_area, many=True).data
+                response_data = SearchServiceAreaSerializer(
+                matching_service_area, many=True).data
         try:
             CacheService.set(json.dumps(
                 mapping(point)),
@@ -190,4 +192,5 @@ def search_service_area(data):
     response["message"] = "Search for service area failed"
     response["success"] = False  
   return response, status_code
+
 

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from service_area.models import Provider, ServiceArea
 import json
+from shapely.geometry import mapping, shape, polygon, Point
 
 class CreateProviderSerializer(serializers.Serializer):
     name = serializers.CharField()
@@ -40,6 +41,23 @@ class CreateServiceAreaSerializer(serializers.Serializer):
     price = serializers.FloatField()
     poly = serializers.JSONField()
     provider_id = serializers.CharField()
+
+    def validate(self, attrs):
+        provider = self.context.get("provider", None)
+        if provider:
+            attrs["provider_id"] = provider[0]
+        else:
+            raise serializers.ValidationError("provider not provided")
+        try:
+            p_polygon = shape(json.loads(attrs.get("poly", None)).get("geometry", None))
+            if isinstance(p_polygon, polygon.Polygon):
+                attrs["poly"] = mapping(p_polygon)
+            else:
+                raise TypeError()
+        except (TypeError, ValueError, json.JSONDecodeError):
+            raise serializers.ValidationError("polygon invalid")
+        return attrs
+
     def create(self, validated_data):
         return ServiceArea.objects.create(**validated_data)
     
@@ -65,10 +83,9 @@ class GeoJsonSerializer(serializers.Serializer):
     latitude = serializers.FloatField()
     longitude = serializers.FloatField()
     point = serializers.SerializerMethodField()
-
     def get_point(self, attrs):
         try:
-            return point.Point(attrs['longitude'], attrs['latitude'])
+            return  Point(attrs['longitude'], attrs['latitude'])
         except (TypeError, ValueError):
             raise serializers.ValidationError("Invalid geo_json point")
 
