@@ -34,6 +34,10 @@ $ python manage.py loaddata provider
 $ python manage.py loaddata servicearea
 ```
 
+### Run test
+```
+$ python manage.py test
+```
 
 ### API endpoints
 
@@ -47,12 +51,12 @@ $ python manage.py loaddata servicearea
 | POST  | api/service-area/  | name, price, poly, provider_id
 | PUT  | api/service-area/<service_id>/  | name, price, poly, provider_id
 | DEL  | api/service-area/<service_id>/  | none
-| PUT  | api/search/  | latitude, longitude, point
+| PUT  | api/search/  | latitude, longitude
 
 
 ### API endpoints curl commands
 
-# Create provider
+#### Create provider
 
 ```
 curl --location --request POST 'https://b1myqf8gt7.execute-api.us-east-1.amazonaws.com/dev/api/provider/' \
@@ -63,12 +67,12 @@ curl --location --request POST 'https://b1myqf8gt7.execute-api.us-east-1.amazona
 --form 'phone_number="999999"'
 
 ```
-# GET providers list
+#### GET providers list
 ```
 curl --location --request GET 'https://b1myqf8gt7.execute-api.us-east-1.amazonaws.com/dev/api/provider/'
 ```
 
-# Update provider
+#### Update provider
 
 ```
 curl --location --request PUT 'https://b1myqf8gt7.execute-api.us-east-1.amazonaws.com/dev/api/provider/96a95428-5f59-4291-b8a6-9a36a73ec7a5/' \
@@ -79,7 +83,7 @@ curl --location --request PUT 'https://b1myqf8gt7.execute-api.us-east-1.amazonaw
 --form 'phone_number="999999"'
 ```
 
-# Delete provider
+#### Delete provider
 ```
 curl --location --request DELETE 'https://b1myqf8gt7.execute-api.us-east-1.amazonaws.com/dev/api/provider/<provider_id>/'
 
@@ -89,24 +93,23 @@ curl --location --request DELETE 'https://b1myqf8gt7.execute-api.us-east-1.amazo
 ```
 
 
-# Create service area
+#### Create service area
 
 ```
 
 curl --location --request POST 'https://b1myqf8gt7.execute-api.us-east-1.amazonaws.com/dev/api/service-area/' \
 --form 'name="service area2"' \
 --form 'price="99"' \
---form 'poly="{\"type\": \"Polygon\", \"coordinates\": [[[54.02929688787, 95.9985354183632762], [54.268041998821, 94.83998827780665], [54.77246523998, 95.87674775085432], [54.48745228515676, 95.424946709803654], [54.988762929687985, 94.553599887363009]]]}"' \
+--form 'poly="{\"type\": \"Feature\",\"properties\": {},\"geometry\": {\"type\": \"Polygon\",\"coordinates\": [[[-72.2775078, 42.9275199], [-72.2806728, 42.9268678], [-72.279675, 42.9262001], [-72.2775078, 42.9261922], [-72.2775078, 42.9275199]]]}"' \
 --form 'provider_id="<provider_id>"'
 
 p.s retrieve and replace provider_id
 ```
 
-# Search service area
+#### Search service area
 
 ```
 curl --location --request PUT 'https://b1myqf8gt7.execute-api.us-east-1.amazonaws.com/dev/api/search/' \
---form 'latitude="45.99808905"' \
---form 'longitude="94.895418736387"' \
---form 'point="888"'
+--form 'latitude="-72.2775078"' \
+--form 'longitude="42.9275199"' 
 ```

@@ -62,3 +62,12 @@ class TestProviderDeleteUpdate(ProviderTests):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(Provider.objects.all().count(), 1)
 
+class ServiceAreaSearch(APITestCase):
+
+    def test_servicearea(self):
+        payload = {'latitude': '-72.2775078','longitude': '42.9275199'}
+        res = self.client.put('/api/search/', payload)
+        self.assertTrue(res.data['success'])
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+
+
