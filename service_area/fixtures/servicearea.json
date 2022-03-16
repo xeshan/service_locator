@@ -1,1 +1,62 @@
 [
+{
+  "model": "service_area.servicearea",
+  "pk": "13efda4d-be32-45b7-935e-0ab24d523c6e",
+  "fields": {
+    "name": "service area 3",
+    "price": 99.0,
+    "provider": "3dfad2d3-d4ef-4a6b-89df-f93ba6c53801",
+    "poly": "{\"type\": \"Polygon\", \"coordinates\": [[[-72.2786772, 42.9245267], [-72.2772288, 42.9235761], [-72.2761452, 42.9244874], [-72.2786772, 42.9245267]]]}"
+  }
+},
+{
+  "model": "service_area.servicearea",
+  "pk": "199a3812-ff37-4cf9-93a1-6811f614f068",
+  "fields": {
+    "name": "service area 2",
+    "price": 99.0,
+    "provider": "3dfad2d3-d4ef-4a6b-89df-f93ba6c53801",
+    "poly": "{\"type\": \"Polygon\", \"coordinates\": [[[-72.2775078, 42.9275199], [-72.2806728, 42.9268678], [-72.279675, 42.9262001], [-72.2775078, 42.9261922], [-72.2775078, 42.9275199]]]}"
+  }
+},
+{
+  "model": "service_area.servicearea",
+  "pk": "46a904fe-d3bf-424b-a121-55699f8ae957",
+  "fields": {
+    "name": "service area 3",
+    "price": 99.0,
+    "provider": "1f2a7bc8-81db-4dbf-91f0-a160568a7056",
+    "poly": "{\"type\": \"Polygon\", \"coordinates\": [[[-72.2786772, 42.9245267], [-72.2772288, 42.9235761], [-72.2761452, 42.9244874], [-72.2786772, 42.9245267]]]}"
+  }
+},
+{
+  "model": "service_area.servicearea",
+  "pk": "a978eb8e-4cf9-4c13-be24-f05e9c327ced",
+  "fields": {
+    "name": "service area 2",
+    "price": 99.0,
+    "provider": "3dfad2d3-d4ef-4a6b-89df-f93ba6c53801",
+    "poly": "{\"type\": \"Polygon\", \"coordinates\": [[[-72.2786772, 42.9245267], [-72.2772288, 42.9235761], [-72.2761452, 42.9244874], [-72.2786772, 42.9245267]]]}"
+  }
+},
+{
+  "model": "service_area.servicearea",
+  "pk": "b61a0d61-37a8-49ab-b302-805844b765a6",
+  "fields": {
+    "name": "service area 1",
+    "price": 99.0,
+    "provider": "8ffcb9d7-83f3-4dc4-bb9c-161c1890cba7",
+    "poly": "{\"type\": \"Polygon\", \"coordinates\": [[[-72.2775078, 42.9275199], [-72.2806728, 42.9268678], [-72.279675, 42.9262001], [-72.2775078, 42.9261922], [-72.2775078, 42.9275199]]]}"
+  }
+},
+{
+  "model": "service_area.servicearea",
+  "pk": "c2bde2ff-38b0-46df-b282-89e623ca8acc",
+  "fields": {
+    "name": "service area 4",
+    "price": 99.0,
+    "provider": "1f2a7bc8-81db-4dbf-91f0-a160568a7056",
+    "poly": "{\"type\": \"Polygon\", \"coordinates\": [[[-72.2786772, 42.9245267], [-72.2772288, 42.9235761], [-72.2761452, 42.9244874], [-72.2786772, 42.9245267]]]}"
+  }
+}
+]
